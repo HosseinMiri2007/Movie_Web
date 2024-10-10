@@ -1,7 +1,9 @@
+import { useState } from "react";
 import logo from "../../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [mobile, setMobile] = useState(false);
   return (
     <header>
       <div
@@ -18,7 +20,19 @@ const Header = () => {
             <img src={logo} alt="website logo" className="w-24 max-md:w-16" />
             <h3>MovieSpace</h3>
           </Link>
-          <ul className="flex gap-10 max-lg:hidden text-xl">
+
+          <ul
+            className={`flex gap-10 text-xl
+            max-lg:${mobile ? "flex" : "hidden"}
+            max-lg:flex-col
+            max-lg:absolute
+            max-lg:top-0
+            max-lg:left-0
+            max-lg:w-[30%]
+            max-lg:[&>*]:ml-5
+            max-lg:py-10
+          max-lg:bg-gray-900`}
+          >
             <Link to={"/"}>Home</Link>
             <Link to={"/movies"}>Movies</Link>
             <Link to={"/series"}>Series</Link>
@@ -33,7 +47,12 @@ const Header = () => {
             <i className="fa fa-bell"></i>
             <i className="fa fa-user"></i>
           </div>
-          <button className="fa fa-bars hidden max-lg:block text-3xl"></button>
+          <button
+            className={`${
+              mobile ? "fa fa-x" : "fa fa-bars"
+            } hidden max-lg:block text-3xl`}
+            onClick={() => setMobile(!mobile)}
+          ></button>
         </div>
       </div>
     </header>
