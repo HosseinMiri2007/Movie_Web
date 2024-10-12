@@ -8,7 +8,7 @@ const Header = () => {
     <header>
       <div
         className="flex items-center justify-between
-        px-5 py-1 gap-5 bg-gray-700 text-gray-100"
+        px-5 py-1 gap-5 bg-gray-900 text-gray-100"
       >
         <nav className="flex items-center gap-10">
           <Link
@@ -42,10 +42,13 @@ const Header = () => {
           </ul>
         </nav>
         <div className="flex items-center text-3xl child:text-white">
-          <div className="flex items-center justifty-between gap-10 max-lg:hidden">
-            <i className="fa fa-search"></i>
-            <i className="fa fa-bell"></i>
-            <i className="fa fa-user"></i>
+          <div
+            className="flex items-center justifty-between gap-10
+            max-lg:hidden [&>*]:cursor-pointer"
+          >
+            <i className="fa fa-search "></i>
+            <i className="fa fa-bell "></i>
+            <i className="fa fa-user "></i>
           </div>
           <button
             className={`${
